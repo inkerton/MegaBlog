@@ -51,7 +51,8 @@ function AllPosts() {
           </div>
 
           <div className="px-4 mb-4 w-full">
-            {Object.keys(categorizedPosts).map((category) => (
+            {/* {Object.keys(categorizedPosts).map((category) => ( */}
+            {Object.keys(categorizedPosts).length > 0 && Object.keys(categorizedPosts).map((category) => (
               <div key={category} className="mb-8">
                 <h2 class="flex flex-row flex-nowrap items-center mt-16 mb-16">
                   <span class="flex-grow block border-t border-black"></span>
@@ -65,7 +66,7 @@ function AllPosts() {
                 {categorizedPosts[category].length > 5 ? (
                   <Carousel>
                     <CarouselContent className="-ml-1 mb-4">
-                      {categorizedPosts[category].map((post) => (
+                      {categorizedPosts[category]?.map((post) => (
                         <CarouselItem
                           key={post.$id}
                           className="pl-4 md:basis-1/2 lg:basis-1/4"
@@ -134,7 +135,7 @@ function AllPosts() {
                 ) : (
                   // If less than or equal to 4 posts, render normally
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {categorizedPosts[category].map((post) => (
+                    {categorizedPosts[category]?.map((post) => (
                       <PostCard key={post.$id} {...post} />
                     ))}
                   </div>
